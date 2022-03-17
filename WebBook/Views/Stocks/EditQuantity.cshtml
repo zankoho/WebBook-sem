@@ -1,0 +1,46 @@
+﻿@model WebBook.Models.Stock
+
+@{
+    ViewData["Title"] = "EditQuantity";
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-5">
+        <form asp-action="Edit">
+            <input asp-for="StockId" hidden />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <h1>Edit Stock for </h1> <br />
+            <h4>Product @Model.Product.ProductName in Warehause @Model.Warehause.WarehauseLocation 
+                @if(@Model.Warehause.WarehauseName != null)
+                {
+                 <h4>(@Model.Warehause.WarehauseName)</h4>  
+                }
+            </h4>
+            <div class="form-group">
+                <input asp-for="ProductId" hidden />
+            </div>
+            <div class="form-group">
+                <input asp-for="WarehauseId" hidden />
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label"></label>
+                <input  asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <br />
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" style="width:150px">Update</button>
+                <a asp-controller="Stocks" asp-action="Index" class ="btn btn-secondary" style="width:150px">Back to list</a>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"/> 
+    }
+    
+}
+

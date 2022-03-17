@@ -1,0 +1,50 @@
+﻿@using WebBook.ViewModel
+
+@model WarehauseList
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class ="col-6">
+            <h2 class ="text-primary">Warehause List</h2>
+        </div>
+        <div class ="col-6 text-end">
+            <a asp-controller="Warehauses" asp-action="Create" class ="btn btn-primary"><i class="bi bi-plus-circle"></i> Add new Warehause</a>
+        </div>
+    </div>
+</div>
+<br />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Warehause Location
+            </th>
+            <th>
+                Werhause name
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var obj in Model.Warehauses) {
+        <tr>
+            <td width="45%">
+                @obj.WarehauseLocation
+            </td>
+            <td width="45%">
+                @obj.WarehauseName
+            </td>
+            <td>
+                <div class="btn-group" role="group">
+                        <a  asp-action="Edit" asp-route-id="@obj.WarehauseId" ><i class="bi bi-pen-fill"></i></a>
+                        <a  asp-action="Delete" asp-route-id="@obj.WarehauseId" style="margin-left: 25px; color: red" ><i class="bi bi-x-octagon-fill"></i></a>
+                        <a asp-action="Details" asp-route-id="@obj.WarehauseId"><i class="bi bi-info-lg" style="margin-left: 15px" ></i></a>
+                    </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

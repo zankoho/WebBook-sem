@@ -1,0 +1,30 @@
+﻿@model WebBook.Models.Warehause
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Warehause</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.WarehauseLocation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.WarehauseLocation)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.WarehauseName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.WarehauseName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="WarehauseId" class ="btn btn-secondary" style="width:150px" >Edit</a>
+    <a asp-controller="Warehauses" asp-action="Index" class ="btn btn-secondary" style="width:150px">Back to list</a>
+</div>

@@ -1,0 +1,39 @@
+﻿@model WebBook.Models.Stock
+
+@{
+    ViewData["Title"] = "Sell";
+}
+<h1>Sell</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Sell">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProductId" class="control-label" >Sell product</label>
+                <select asp-for="ProductId" class ="form-control" asp-items="ViewBag.ProductId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="WarehauseId" class="control-label">From Warehause</label>
+                <select asp-for="WarehauseId" class ="form-control" asp-items="ViewBag.WarehauseId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity" hidden class="control-label">Now in stock</label>
+                <input asp-for="Quantity" hidden class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label  class="control-label">Units to sell</label>
+                <input type="number" min="1" value="1" id="minus" name="minus" class="form-control" />
+            </div>
+            <br />
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" style="width:150px">Sell</button>
+                <a asp-controller="Stocks" asp-action="Index" class ="btn btn-secondary" style="width:150px">Back to list</a>
+            </div>
+        </form>
+    </div>
+</div>
+

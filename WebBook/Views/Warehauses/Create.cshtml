@@ -1,0 +1,30 @@
+﻿@model WebBook.Models.Warehause
+
+@{
+    ViewData["Title"] = "Create";
+}
+<h4>Create Warehause</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="WarehauseLocation" class="control-label"></label>
+                <input asp-for="WarehauseLocation" class="form-control" />
+                <span asp-validation-for="WarehauseLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WarehauseName" class="control-label"></label>
+                <input asp-for="WarehauseName" class="form-control" />
+                <span asp-validation-for="WarehauseName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
+                <a asp-controller="Warehauses" asp-action="Index" class ="btn btn-secondary" style="width:150px">Back to list</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+

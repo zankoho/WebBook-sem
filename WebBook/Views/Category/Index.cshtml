@@ -1,0 +1,53 @@
+﻿@using WebBook.ViewModel
+
+@model CategoryList
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class ="col-6">
+            <h2 class ="text-primary">Category List</h2>
+        </div>
+        <div class ="col-6 text-end">
+            <a asp-controller="Category" asp-action="Create" class ="btn btn-primary"><i class="bi bi-plus-circle"></i> Create new category</a>
+        </div>
+    </div>
+</div>
+<br />
+
+<table class ="table table-boarded table-striped">
+    <thead>
+        <tr>
+            <th>Category Name</th>
+            <th>Dislay Order</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model.Categories)
+        {
+            <tr>
+                <td width="60%">@obj.Name</td>
+                <td width="20%">@obj.DisplayOrder</td>
+                <td width="10%">
+                    <div class="btn-group" role="group">
+                        <a asp-controller="Category" asp-action="Edit" asp-route-id="@obj.Id" ><i class="bi bi-pen-fill"></i></a>
+                        <a asp-controller="Category" asp-action="Delete" asp-route-id="@obj.Id" style="margin-left: 25px; color: red" ><i class="bi bi-x-octagon-fill"></i></a>
+                        <a asp-action="Details" asp-route-id="@obj.Id"><i class="bi bi-info-lg" style="margin-left: 15px" ></i></a>
+                    </div>
+                </td>
+            </tr>
+        }
+@*        <select class="form-select"">
+            @foreach(var obj in Model.Categories)
+        {
+            
+                <option value="" selected disabled>@obj.Name</option>
+        }
+        </select>*@
+        
+    </tbody>
+</table>
